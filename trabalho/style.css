@@ -1,0 +1,78 @@
+body{
+    background-color: whitesmoke;
+}
+table{
+    bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+footer{ 
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: rgb(255, 255, 255);
+    align-content: center;
+    list-style: none;
+    font-family: Arial, Helvetica, sans-serif;
+   flex: auto;
+   flex-shrink: 0;
+   text-align: center;
+   
+}
+
+/*background-color: rgb(26, 27, 35);
+color:white;
+
+*/
+form{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 75px;
+    
+    
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    z-index: 1000;
+    background-color: rgb(26, 27, 35);
+    color:white;
+    text-align: center;
+    height:10%;
+}
+.menu-site{
+    width: 100%;
+    z-index: 1000;
+    background-color: rgb(26, 27, 35);
+    color:white;
+    text-align: center;
+    height:10%;
+}
+.user-img{
+    background-color: antiquewhite;
+    z-index: 1001;
+    border-color: aliceblues;
+    border-width: 3px;
+    border-style: outset;
+    width:"55px";
+    max-width: 3%;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    margin-right:10px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease; /* Transição suave */
+}
+
+.user-img:hover {
+    transform: scale(1.05); /* Aumenta 10% do tamanho original */
+  }
+
+
+.badegas{
+    height:100px; 
+}
