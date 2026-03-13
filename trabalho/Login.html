@@ -1,31 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PS code sing-in</title>
+    <title>PS code sign-in</title>
 </head>
-<body class="loginClass">
-    <form action="/enviar-cadastro" method="POST">
 
-        <div>
-            <label for="nome">Nome:</div>
+<body class="loginPage">
+
+    <form action="/enviar-cadastro" method="POST" class="loginForm">
+
+        <h2>Login</h2>
+
+        <div class="nome-login">
+            <label for="nome">Nome:</label>
             <input type="text" id="nome" name="nome" required>
         </div>
-        
-        <div>
-            <label for="email">Email:</div>
+
+        <div class="email-login">
+            <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
         </div>
-        
-        <div>
-            <label for="senha">Senha:</div>
+
+        <div class="senha-login">
+            <label for="senha">Senha:</label>
             <input type="password" id="senha" name="senha" required>
-        </div></br>
-        
+        </div>
+
         <button type="submit" id="Login">Login</button>
-        <button type="reset" id="cancelar">cancelar</button>
-        </form>
+        <button type="reset" id="cancelar">Cancelar</button>
+
+    </form>
+
 </body>
 </html>

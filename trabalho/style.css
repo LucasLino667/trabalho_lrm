@@ -76,3 +76,62 @@ header {
 .badegas{
     height:100px; 
 }
+
+.loginPage{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background: linear-gradient(135deg,#0f0f0f,#2b2b2b);
+}
+
+.loginForm{
+    background:#1e1e1e;
+    padding:40px;
+    width:350px;
+    border-radius:10px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.6);
+}
+
+.loginForm h2{
+    color:white;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.loginForm label{
+    color:#ccc;
+}
+
+.loginForm input{
+    width:100%;
+    padding:12px;
+    margin:8px 0 15px 0;
+
+    border:none;
+    border-radius:20px;
+
+    background:#2f2f2f;
+    color:white;
+}
+
+.loginForm button{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+
+    border:none;
+    border-radius:20px;
+
+    background:#00aaff;
+    color:white;
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+#cancelar{
+    background:#444;
+}
