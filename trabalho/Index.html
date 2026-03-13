@@ -4,20 +4,48 @@
     
 </head>
 <body>
-    <header>
-        <h1> Trabalho</h1>
+    <header id="cabecalho">
+      
        
         
     </header> 
 <div class="badegas">
-
+<footer id="rodape"></footer>
+<table id="tabela"></table>
+<menu id="menu"></menu>
+<form id="formulario"></form>
 </div>
 <script>
 fetch('Login.html')
 .then(response => response.text())
 .then(data => {
     document.getElementById('LOGIN').innerHTML = data;
+
 });
+
+
+   fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('cabecalho').innerHTML = data;
+            });
+
+   fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('rodape').innerHTML = data;
+            });
+   fetch('menu.html')
+       .then(response => response.text())
+       .then(data => {
+       document.getElementById('menu').innerHTML = data;
+            }); 
+
+    fetch('table.html')
+       .then(response => response.text())
+       .then(data => {
+       document.getElementById('tabela').innerHTML = data;
+            });
 </script>
 
 
