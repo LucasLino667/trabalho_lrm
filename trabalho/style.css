@@ -43,14 +43,7 @@ header {
     text-align: center;
     height:10%;
 }
-.menu-site{
-    width: 100%;
-    z-index: 1000;
-    background-color: rgb(26, 27, 35);
-    color:white;
-    text-align: center;
-    height:10%;
-}
+
 .user-img{
     background-color: antiquewhite;
     z-index: 1001;
@@ -134,4 +127,25 @@ header {
 
 #cancelar{
     background:#444;
+
+}
+
+.nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333333;
+    display: flex;
+    justify-content: center;
+}
+.nav li a {
+    display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.nav li a:hover{
+    background-color: #111;
 }
