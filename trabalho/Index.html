@@ -12,16 +12,9 @@
     <table id="tabela"></table>
     <menu id="menu"></menu>
     <form id="formulario"></form>
-    <div id="LOGIN"></div>
 </div>
 
 <script>
-
-fetch('Login.html')
-.then(response => response.text())
-.then(data => {
-    document.getElementById('LOGIN').innerHTML = data;
-});
 
 fetch('head.html')
 .then(response => response.text())
