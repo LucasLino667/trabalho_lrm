@@ -1,1 +1,3 @@
-<button onclick="window.open('login.html', '_blank')">Login</button>
+document.getElementById("button_login").addEventListener("click", function () {
+    window.location.href = "Login.html";
+});
