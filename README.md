@@ -1,2 +1,8 @@
 # trabalho_lrm
-trabalho 1 de programacao web 1 
+Projeto de Programação Web 1
+
+Idéia do projeto: Site de venda de produtos elêtronicos
+
+Integrantes: Ryan Henrique
+             Marco Miguel 
+             Lucas Lino 
