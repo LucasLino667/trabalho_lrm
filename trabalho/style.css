@@ -60,7 +60,7 @@ header {
     margin-right:10px;
     border-radius: 50%;
     object-fit: cover;
-    transition: transform 0.3s ease; /* Transição suave */
+    transition: transform 0.3s ease;
 }
 
 
@@ -71,11 +71,11 @@ header {
 }
 
 .user-img:hover {
-    transform: scale(1.05); /* Aumenta 10% do tamanho original */
+    transform: scale(1.05); 
   }
 
 
-.badegas{
+.espacamento{
     height:100px; 
 }
 
@@ -171,7 +171,46 @@ header {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsividade para telas menores */
+.loginPage{
+     display: flex;
+    justify-content: center;
+    position: sticky;
+}
+.loginPage h1{
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    font-size: 50px;
+}
+
+.loginPage button{
+    width: 100px;
+}
+
+.loginPage input{
+    width: 196px;
+}
+
+.loginPage a{
+    color:black;
+      display: flex;
+    justify-content: center;
+    position: sticky;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-bottom: 10px;
+}
+
+
+.cadastramento-zone{
+    background-color: #cecece;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    border:10px;
+    border-radius: 10px;
+}
+
 @media (max-width: 768px) {
     .produtos-tabela {
         width: 98%;
