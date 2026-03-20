@@ -266,7 +266,7 @@ header {
     .produto-preco {
         font-size: 16px;
     }
-<<<<<<< HEAD
+
     .logo {
         display: flex; 
         align-items: center;
@@ -274,11 +274,11 @@ header {
        
         }
         .nav {
+            background-color: #111; 
             display: flex;
-            justify-content: space-between; 
-            align-items: center; 
+            justify-content: space-between;
+            align-items: center;
             padding: 10px 20px;
-            background-color: #111;
         }
         
         .nav-links {
@@ -302,12 +302,15 @@ header {
         
         
         .logo img {
-            height: 50px;
+            height: 50px; 
+            max-width: 100%; 
+            object-fit: contain; 
+            display: block; 
         }
 
 
-=======
-}
+
+
 
 .modal-overlay {
     position: fixed;
@@ -348,4 +351,4 @@ header {
 .modal-box button:hover {
     opacity: 0.85;
 }
->>>>>>> a88c1969b7d37f243633ef9de27c515ae4c222bd
+
