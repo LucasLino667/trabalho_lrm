@@ -1,6 +1,10 @@
-body{
+body {
     background-color: whitesmoke;
-    margin-top: 50px;
+    padding-top: 100px; 
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
 }
 table{
     bottom: 0;
@@ -33,10 +37,11 @@ form{
 }
 
 header {
-   
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+    height: 80px;
     margin: 0;
     z-index: 1000;
     background-color: rgb(26, 27, 35);
@@ -84,7 +89,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-
+    z-index: 1001;
 }
 .nav ul {
     list-style: none;
@@ -106,14 +111,11 @@ header {
 }
 
 .produtos-tabela {
-    width: 95%;
-    max-width: 1400px;
-    margin: 100px auto 50px auto;
+    width: 90%; 
+    max-width: 1200px;
+    margin: 40px auto; 
     border-collapse: collapse;
     background-color: white;
-    border: 2px solid #333;
-    border-radius: 10px;
-    overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
