@@ -9,35 +9,50 @@
 </head>
 
 <body class="loginPage">
-    <div>
-    </div>
+
     <a href="index.html" class="btn-voltar">← Voltar</a>
+
     <div class="cadastramento-zone">
-    <form action="/enviar-cadastro" method="POST" class="loginForm">
-        <h1>Cadastro</h1>
-        <div class="nome-login">
-            <label for="nome">Nome:</label><br>
-            <input type="text" id="nome" name="nome" required>
-        </div>
-        <br>
-        <div class="email-login">
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <br>
-        <div class="senha-login">
-            <label for="senha">Senha:</label><br>
-            <input type="password" id="senha" name="senha" required>
-        </div>
-        <br>
-        <br>
-        <a href="Login.html">Já tenho uma conta<a>
-        <br>
-        <button type="submit" id="Login">Cadastrar</button>
-        <button type="reset" id="cancelar">Cancelar</button>
-    </form>
-</div>
-   <div>
+        <form class="loginForm" onsubmit="mostrarSucesso(event)">
+            <h1>Cadastro</h1>
+            <div class="nome-login">
+                <label for="nome">Nome:</label><br>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            <br>
+            <div class="email-login">
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <br>
+            <div class="senha-login">
+                <label for="senha">Senha:</label><br>
+                <input type="password" id="senha" name="senha" required>
+            </div>
+            <br><br>
+            <a href="Login.html">Já tenho uma conta</a>
+            <br>
+            <button type="submit" id="Login">Cadastrar</button>
+            <button type="reset" id="cancelar">Cancelar</button>
+        </form>
     </div>
+
+    <!-- Modal de sucesso -->
+    <div id="modal-sucesso" style="display:none;">
+        <div class="modal-overlay">
+            <div class="modal-box">
+                <p>✅ Cadastro realizado com sucesso!</p>
+                <button onclick="document.getElementById('modal-sucesso').style.display='none'">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function mostrarSucesso(event) {
+            event.preventDefault();
+            document.getElementById('modal-sucesso').style.display = 'block';
+        }
+    </script>
+
 </body>
 </html>
