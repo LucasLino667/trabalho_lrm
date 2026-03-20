@@ -172,10 +172,20 @@ header {
 }
 
 .loginPage {
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
-    position: sticky;
-    background-color: #DCDCDC; 
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 110px;
+    box-sizing: border-box;
+    position: relative;
+    background-color: #DCDCDC;
+}
+
+.loginPage > header,
+.loginPage > menu {
+    width: 100%;
 }
 
 .cadastramento-zone {
@@ -256,6 +266,7 @@ header {
     .produto-preco {
         font-size: 16px;
     }
+<<<<<<< HEAD
     .logo {
         display: flex; 
         align-items: center;
@@ -295,3 +306,46 @@ header {
         }
 
 
+=======
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-box {
+    background: white;
+    padding: 32px 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.modal-box p {
+    margin: 0 0 16px 0;
+    color: #333;
+}
+
+.modal-box button {
+    padding: 8px 24px;
+    background-color: #002B5B;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    width: auto;
+}
+
+.modal-box button:hover {
+    opacity: 0.85;
+}
+>>>>>>> a88c1969b7d37f243633ef9de27c515ae4c222bd
