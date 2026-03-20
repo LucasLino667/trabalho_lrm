@@ -171,44 +171,40 @@ header {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.loginPage{
-     display: flex;
-    justify-content: center;
-    position: sticky;
-}
-.loginPage h1{
+.loginPage {
     display: flex;
     justify-content: center;
     position: sticky;
-    font-size: 50px;
+    background-color: #DCDCDC; 
 }
 
-.loginPage button{
-    width: 100px;
-}
-
-.loginPage input{
-    width: 196px;
-}
-
-.loginPage a{
-    color:black;
-      display: flex;
-    justify-content: center;
-    position: sticky;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    margin-bottom: 10px;
-}
-
-
-.cadastramento-zone{
-    background-color: #cecece;
+.cadastramento-zone {
+    background-color: #F8F8FF; 
     width: 300px;
     display: flex;
     justify-content: center;
     margin: 10px;
-    border:10px;
     border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.loginPage button {
+    width: 100px;
+    background-color: #002B5B; 
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.loginPage input {
+    width: 196px;
+    background-color: #FFFFFF;
+    border: 1px solid #DDE2E5;
+}
+
+.loginPage h1 {
+    color: #333333; 
 }
 
 @media (max-width: 768px) {
