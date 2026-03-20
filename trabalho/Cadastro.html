@@ -10,6 +10,9 @@
 
 <body class="loginPage">
 
+    <header id="cabecalho"></header>
+    <menu id="menu"></menu>
+
     <a href="index.html" class="btn-voltar">← Voltar</a>
 
     <div class="cadastramento-zone">
@@ -57,6 +60,13 @@
             event.preventDefault();
             document.getElementById('modal-sucesso').style.display = 'block';
         }
+
+        fetch('menu.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('menu').innerHTML = data;
+            })
+            .catch(err => console.error('Erro carregando menu:', err));
     </script>
 
 </body>

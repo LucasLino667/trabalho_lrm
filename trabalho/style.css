@@ -172,10 +172,20 @@ header {
 }
 
 .loginPage {
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
-    position: sticky;
-    background-color: #DCDCDC; 
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 110px;
+    box-sizing: border-box;
+    position: relative;
+    background-color: #DCDCDC;
+}
+
+.loginPage > header,
+.loginPage > menu {
+    width: 100%;
 }
 
 .cadastramento-zone {
