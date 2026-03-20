@@ -11,6 +11,13 @@
 
 <body class="loginPage">
     <div>
+        <script>
+            fetch('menu.html')
+.then(response => response.text())
+.then(data => {
+    document.getElementById('menu').innerHTML = data;
+});
+        </script>
     </div>
     <a href="index.html" class="btn-voltar">← Voltar</a>
     <div class="cadastramento-zone">
