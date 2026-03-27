@@ -41,14 +41,65 @@ header {
 
 .nav {
     width: 100%;
-    display: grid;
-    grid-template-columns: auto 1fr;
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 20px;
     padding: 0 40px;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-header, .nav-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-user {
+    border-radius: 15px;
+    text-decoration: none;
+    color: #94a3b8;
+    cursor: pointer;
+    background-color: #141c30;
+}
+
+.nav-user:hover .username {
+    color: #e2e8f0;
+}
+
+.nav-user .avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.nav-header .title {
+    color: #e2e8f0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.nav-user .username {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 .logo img {
     height: 45px;
+    object-fit: contain;
+}
+
+.avatar{
+     height: 45px;
     object-fit: contain;
 }
 
@@ -295,6 +346,15 @@ footer {
     text-align: center;
     border-top: 1px solid #e2e8f0;
     margin-top: auto;
+}
+
+footer li {
+    list-style: none;
+}
+
+.uli-topico{
+    color:rgb(71, 71, 71);
+    font-weight: bold;
 }
 
 

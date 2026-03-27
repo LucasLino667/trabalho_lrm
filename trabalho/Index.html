@@ -18,7 +18,10 @@
     <script>
         fetch('menu.html')
             .then(r => r.text())
-            .then(data => document.getElementById('menu').innerHTML = data);
+            .then(data => {
+                document.getElementById('menu').innerHTML = data;
+                if (typeof initMenu === 'function') initMenu();
+            });
 
         fetch('table.html')
             .then(r => r.text())
