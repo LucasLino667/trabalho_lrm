@@ -22,7 +22,6 @@ function excluir() {
     }
   }
 
-
 function mostrarSucesso(event) {
     event.preventDefault();
     document.getElementById('modal-sucesso').style.display = 'block';
