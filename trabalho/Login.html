@@ -13,13 +13,8 @@
 
     <div>
     </div>
-
-
-
     <header id="cabecalho"></header>
     <menu id="menu"></menu>
-
-
     <a href="index.html" class="btn-voltar">← Voltar</a>
     <div class="cadastramento-zone">
     <form action="/enviar-cadastro" method="POST" class="loginForm">
@@ -48,6 +43,11 @@
             .then(response => response.text())
             .then(data => {
                 document.getElementById('menu').innerHTML = data;
+    
+                const loginBtn = document.getElementById('menu-login');
+                if (loginBtn) {
+                    loginBtn.style.display = 'none';
+                }
             })
             .catch(err => console.error('Erro carregando menu:', err));
     </script>
