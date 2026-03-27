@@ -7,44 +7,28 @@
     <link rel="icon" type="image/png" href="https://img.freepik.com/vetores-premium/logotipo-do-monitor-loja-digital-logotipo-de-produtos-eletronicos-ou-logotipo-da-loja-logotipo-da-loja_372882-57.jpg">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
+    <div id="menu"></div>
 
+    <div id="tabela"></div>
 
-<div class="espacamento">
     <footer id="rodape"></footer>
-    <table id="tabela"></table>
-    <menu id="menu"></menu>
-    <form id="formulario"></form>
-</div>
 
-<script>
+    <script>
+        fetch('menu.html')
+            .then(r => r.text())
+            .then(data => document.getElementById('menu').innerHTML = data);
 
+        fetch('table.html')
+            .then(r => r.text())
+            .then(data => document.getElementById('tabela').innerHTML = data);
 
-
-
-
-fetch('footer.html')
-.then(response => response.text())
-.then(data => {
-    document.getElementById('rodape').innerHTML = data;
-});
-
-fetch('menu.html')
-.then(response => response.text())
-.then(data => {
-    document.getElementById('menu').innerHTML = data;
-});
-
-fetch('table.html')
-.then(response => response.text())
-.then(data => {
-    document.getElementById('tabela').innerHTML = data;
-});
-
-</script>
-<script src="script.js"></script>
+        fetch('footer.html')
+            .then(r => r.text())
+            .then(data => document.getElementById('rodape').innerHTML = data);
+    </script>
+    <script src="script.js"></script>
 
 </body>
 </html>

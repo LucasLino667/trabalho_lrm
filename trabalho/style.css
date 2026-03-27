@@ -1,10 +1,11 @@
 body {
-    background-color: whitesmoke;
-    padding-top: 100px; 
-    margin: 0;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
+    padding-top: 100px;
+    margin: 0;
+    background-color: whitesmoke;
 }
 table{
     bottom: 0;
@@ -13,16 +14,13 @@ table{
 }
 footer{ 
     width: 100%;
-    position: sticky;
-    bottom: 0;
-    background-color: rgb(255, 255, 255);
-    align-content: center;
-    list-style: none;
+    margin-top: auto; /* empurra pro fundo */
+    background-color: white;
     font-family: Arial, Helvetica, sans-serif;
-   flex: auto;
-   flex-shrink: 0;
-   text-align: end;
-   
+    text-align: end;
+    padding: 16px;
+    box-sizing: border-box;
+    text-align: center;
 }
 
 /*background-color: rgb(26, 27, 35);
