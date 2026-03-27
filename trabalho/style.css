@@ -275,8 +275,8 @@ header {
 
 .nav {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: auto 1fr;
     align-items: center;
     padding: 0 40px;
 }
@@ -285,6 +285,7 @@ header {
     list-style: none;
     display: flex;
     gap: 25px;
+    justify-content: center; /* centraliza o menu */
 }
 
 .nav-links li a {
