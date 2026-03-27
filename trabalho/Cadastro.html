@@ -1,46 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <link rel="stylesheet" href="style.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PS code sign-in</title>
-</head>
-
 <body class="loginPage">
-
+    <link rel="stylesheet" href="style.css">
     <header id="cabecalho"></header>
     <menu id="menu"></menu>
-    <a href="index.html" class="btn-voltar">← Voltar</a>
+
+    <a href="index.html" class="btn-voltar">← Voltar para o Início</a>
 
     <div class="cadastramento-zone">
+        <div class="login-image" style="background-image: url('https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=2029&auto=format&fit=crop');">
+            <div class="image-overlay">
+                <h2>Crie sua conta</h2>
+                <p>Junte-se à nossa comunidade e aproveite ofertas exclusivas.</p>
+            </div>
+        </div> 
+        
         <form class="loginForm" onsubmit="mostrarSucesso(event)">
             <h1>Cadastro</h1>
-            <div class="nome-login">
-                <label for="nome">Nome:</label><br>
-                <input type="text" id="nome" name="nome" required>
+            <p class="subtitle">Preencha os campos para começar</p>
+
+            <div class="input-group">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" name="nome" placeholder="Ex: João Silva" required>
             </div>
-            <br>
-            <div class="email-login">
-                <label for="email">Email:</label><br>
-                <input type="email" id="email" name="email" required>
+
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="seu@email.com" required>
             </div>
-            <br>
-            <div class="senha-login">
-                <label for="senha">Senha:</label><br>
-                <input type="password" id="senha" name="senha" required>
+
+            <div class="input-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="Crie uma senha forte" required>
             </div>
-            <br>
-            <div class="senha-login">
-                <label for="confirma-senha">Confirme sua senha:</label><br>
-                <input type="password" id="confirma-senha" name="confirma-senha" required>
+
+            <div class="input-group">
+                <label for="confirma-senha">Confirme sua Senha</label>
+                <input type="password" id="confirma-senha" name="confirma-senha" placeholder="Repita a senha" required>
             </div>
-            <br><br>
-            <a href="Login.html">Já tenho uma conta</a>
-            <br>
-            <button type="submit" id="Login">Cadastrar</button>
-            <button type="reset" id="cancelar">Cancelar</button>
+
+            <a href="Login.html" class="link-cadastro">Já tenho uma conta</a>
+            
+            <div class="button-group">
+                <button type="submit" id="Login">Cadastrar</button>
+                <button type="reset" id="cancelar">Limpar</button>
+            </div>
         </form>
     </div>
 
@@ -48,24 +50,38 @@
         <div class="modal-overlay">
             <div class="modal-box">
                 <p>✅ Cadastro realizado com sucesso!</p>
-                <button onclick="document.getElementById('modal-sucesso').style.display='none'">OK</button>
+                <button onclick="window.location.href='Login.html'">Ir para o Login</button>
             </div>
         </div>
     </div>
 
     <script>
+        // Mesma lógica para limpar o menu
         fetch('menu.html')
             .then(response => response.text())
             .then(data => {
-                document.getElementById('menu').innerHTML = data;
-                
-                    const loginBtn = document.getElementById('menu-login');
-                if (loginBtn) {
-                    loginBtn.style.display = 'none';
-                }
-            })
-            .catch(err => console.error('Erro carregando menu:', err));
+                const menuContainer = document.getElementById('menu');
+                menuContainer.innerHTML = data;
+                const links = menuContainer.querySelectorAll('li');
+                links.forEach(li => {
+                    if (li.textContent.trim().toLowerCase() === 'login') {
+                        li.remove();
+                    }
+                });
+            });
+
+        function mostrarSucesso(event) {
+            event.preventDefault();
+            // Aqui você validaria se as senhas são iguais antes de mostrar o modal
+            const senha = document.getElementById('senha').value;
+            const confirma = document.getElementById('confirma-senha').value;
+            
+            if (senha !== confirma) {
+                alert("As senhas não coincidem!");
+                return;
+            }
+            
+            document.getElementById('modal-sucesso').style.display = 'flex';
+        }
     </script>
 </body>
-
-</html>
