@@ -1,22 +1,3 @@
-/*function excluir() {
-    let numero = prompt("Qual coluna quer excluir? (começa em 1)");
-
-    let tabela = document.querySelector("#tabela table");
-  
-    let index = parseInt(numero) - 1; // -1 porque começa em 1 no prompt
-  
-    if (!isNaN(index) && index >= 0) {
-      // Apaga a célula de cada linha
-      for (let i = 0; i < tabela.rows.length; i++) {
-        if (tabela.rows[i].cells[index]) {
-          tabela.rows[i].deleteCell(index);
-        }
-      }
-    } else {
-      alert("Coluna inválida!");
-    }
-  }*/
-
 function login(event){
   event.preventDefault();
   let username = document.getElementById("username").value; 
@@ -42,7 +23,7 @@ function renderMenuUser(){
   const userLabel = document.querySelector(".username");
 
   if(!userLabel) return;
-  userLabel.textContent = loggedUsername ? loggedUsername : 'USUÁRIO DESCONECTADO';
+  userLabel.textContent = loggedUsername ? loggedUsername : 'LOGIN';
 
   if(loggedUsername){
     const avatar = document.querySelector(".avatar");
@@ -51,7 +32,49 @@ function renderMenuUser(){
   }
 }
 
-// Chamado pelos scripts das páginas após carregar menu.html
 function initMenu(){
   renderMenuUser();
+}
+
+function generateTable(products) {
+  let table = '<table class="produtos-tabela">';
+  
+  // Row for images
+  table += '<tr>';
+  products.forEach(product => {
+    table += `<td><img class="produto-img" src="${product.image}" alt="${product.name}"></td>`;
+  });
+  table += '</tr>';
+  
+  // Row for names
+  table += '<tr>';
+  products.forEach(product => {
+    table += `<td contenteditable="true"><h3 class="produto-nome">${product.name}</h3></td>`;
+  });
+  table += '</tr>';
+  
+  // Row for descriptions
+  table += '<tr>';
+  products.forEach(product => {
+    table += `<td contenteditable="true"><p class="produto-descricao">${product.description}</p></td>`;
+  });
+  table += '</tr>';
+  
+  // Row for prices
+  table += '<tr>';
+  products.forEach(product => {
+    table += `<td contenteditable="true"><p class="produto-preco">${product.price}</p></td>`;
+  });
+  table += '</tr>';
+  
+  table += '</table>';
+  return table;
+}
+
+function scrollToSection(event, sectionId) {
+  event.preventDefault();
+  const section = document.getElementById(sectionId);
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
 }

@@ -411,3 +411,57 @@ footer li {
         display: none;
     }
 }
+/* Seções de navegação */
+#sobre,
+#servicos,
+#contato {
+    width: 100%;
+    padding: 160px 40px;
+    display: flex;
+    justify-content: center;
+    scroll-margin-top: 70px;
+}
+
+#sobre      { background-color: #f1f5f9; }
+#servicos   { background-color: #f1f5f9; }
+#contato    { background-color: #f1f5f9; }
+
+.secao-conteudo {
+    max-width: 750px;
+    width: 100%;
+    text-align: center;
+    padding: 60px 50px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    background: var(--white);
+}
+
+#servicos .secao-conteudo {
+   background: var(--white); /* tira o azul, fica branco */
+    border: none;
+}
+
+.secao-conteudo h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 12px;
+}
+
+.secao-conteudo h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 2px;
+    margin: 12px auto 0;
+}
+
+.secao-conteudo p {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 560px;
+    margin: 0 auto;
+}

@@ -11,7 +11,32 @@
 
     <div id="menu"></div>
 
-    <div id="tabela"></div>
+    <section id="inicio"></section>
+
+    <section id="produtos">
+        <div id="tabela"></div>
+    </section>
+
+    <section id="sobre">
+        <div class="secao-conteudo">
+            <h2>Sobre Nós</h2>
+            <p>Somos uma loja especializada em eletrônicos com os melhores produtos do mercado.</p>
+        </div>
+    </section>
+
+    <section id="servicos">
+        <div class="secao-conteudo">
+            <h2>Serviços</h2>
+            <p>Oferecemos assistência técnica, garantia estendida e suporte ao cliente.</p>
+        </div>
+    </section>
+
+    <section id="contato">
+        <div class="secao-conteudo">
+            <h2>Contato</h2>
+            <p>Entre em contato conosco pelo e-mail: contato@pscodeshop.com</p>
+        </div>
+    </section>
 
     <footer id="rodape"></footer>
 
@@ -23,9 +48,12 @@
                 if (typeof initMenu === 'function') initMenu();
             });
 
-        fetch('table.html')
-            .then(r => r.text())
-            .then(data => document.getElementById('tabela').innerHTML = data);
+        fetch('Products.json')
+            .then(r => r.json())
+            .then(products => {
+                document.getElementById('tabela').innerHTML = generateTable(products);
+            });
+
 
         fetch('footer.html')
             .then(r => r.text())
