@@ -52,6 +52,7 @@
             .then(r => r.json())
             .then(products => {
                 document.getElementById('tabela').innerHTML = generateTable(products);
+                enableDeleteCell();
             });
 
 

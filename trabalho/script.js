@@ -78,3 +78,17 @@ function scrollToSection(event, sectionId) {
     section.scrollIntoView({ behavior: 'smooth' });
   }
 }
+
+function enableDeleteCell() {
+    const tabela = document.querySelector('.produtos-tabela');
+    if (!tabela) return;
+
+    tabela.querySelectorAll('td').forEach(td => {
+        td.addEventListener('dblclick', () => {
+            const confirmar = confirm('Deseja excluir esta célula?');
+            if (!confirmar) return;
+
+            td.remove();
+        });
+    });
+}
