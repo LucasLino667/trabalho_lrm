@@ -17,10 +17,62 @@
         <div id="tabela"></div>
     </section>
 
+ <section id="admin-panel" class="admin-section" style="display: none;">
+        <div class="secao-conteudo">
+            <h2>Painel ADM</h2>
+            <p>CRUDL</p>
+            <div class="admin-buttons">
+                <button class="btn-admin btn-insert" onclick="abreFormulario()">Inserir Produto</button>
+                <button class="btn-admin btn-delete" onclick="apagarProduto()">Excluir Produto</button>
+                <button class="btn-admin btn-save" onclick="editarTabela()">Aplicar Edições</button>
+            </div>
+            <p style="font-size:0.95rem; margin-top: 8px; color: #555;">A listagem e os dados tão sendo mostrados em tempo real</p>
+        </div>
+    </section>
+
+    <div id="insert-modal" class="insert-modal" style="display: none;">
+        <div class="insert-modal-content">
+            <div class="insert-modal-header">
+                <h2>Adicionar Produto</h2>
+                <span class="insert-modal-close">&times;</span>
+            </div>
+            <div class="insert-modal-body">
+                <form id="insert-form" class="insert-form">
+                    <div class="form-group">
+                        <label for="product-name">Nome produto</label>
+                        <input type="text" id="product-name" name="name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product-description">Descrição</label>
+                        <textarea id="product-description" name="description"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product-price">Preço</label>
+                        <input type="number" id="product-price" name="price">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product-image">Link da Imagem</label>
+                        <input type="url" id="product-image" name="image">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-cancel" onclick="fechaFormulario()">Cancelar</button>
+                        <button type="submit" class="btn-save">Salvar Produto</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <section id="sobre">
         <div class="secao-conteudo">
-            <h2>Sobre Nós</h2>
-            <p>Somos uma loja especializada em eletrônicos com os melhores produtos do mercado.</p>
+            <h2>Sobre O Projeto</h2>
+            <p>Cadastro de vitrine de produtos generico, fiz o painel de CRUD aparecer em baixo da tabela quando logar como admin, </p>
+            <p>logins padrões: admin, user.</p>
+            <p>Senhas são ambas 123</p>
         </div>
     </section>
 
@@ -38,6 +90,7 @@
         </div>
     </section>
 
+
     <footer id="rodape"></footer>
 
     <script src="script.js"></script>
@@ -49,12 +102,7 @@
                 if (typeof initMenu === 'function') initMenu();
             });
 
-        fetch('Products.json')
-            .then(r => r.json())
-            .then(products => {
-                document.getElementById('tabela').innerHTML = generateTable(products);
-                enableDeleteCell();
-            });
+        renderProductsTable();
 
 
         fetch('footer.html')
