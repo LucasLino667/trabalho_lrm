@@ -9,16 +9,49 @@ function login(event){
 
   if(username === "admin" && password === "123"){
     sessionStorage.setItem("username", username);
-    alert("Login bem-sucedido!");
     window.location.href = "Index.html";
   } else if (username === "user" && password === "123"){
     sessionStorage.setItem("username", username);
-    alert("Login bem-sucedido!");
     window.location.href = "Index.html";
   } else {
     alert("Username ou senha inválidos!");
   }
 }
+
+function logout(){
+  sessionStorage.removeItem("username");
+  window.location.href = "Login.html";
+}
+
+//scroll lucas
+
+function scrollToSection(event, sectionId) {
+  event.preventDefault();
+  const section = document.getElementById(sectionId);
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+//remove linha
+
+function enableDeleteCell() {
+    const tabela = document.querySelector('.produtos-tabela');
+    if (!tabela) return;
+
+    tabela.querySelectorAll('td').forEach(function(td) {
+        td.addEventListener('dblclick', function() {
+            const confirmar = confirm('Deseja excluir esta célula?');
+            if (!confirmar) return;
+
+            td.remove();
+        });
+    });
+}
+
+
+//carrega menu
+
 
 function renderMenuUser(){
   const loggedUsername = sessionStorage.getItem("username");
@@ -41,8 +74,7 @@ function initMenu(){
   const logoutPopup = document.getElementById('logout-popup');
 
   if(!navUser) return;
-
-  navUser.addEventListener('click', event => {
+  navUser.addEventListener('click', function(event) {
     event.preventDefault();
     const loggedUsername = sessionStorage.getItem('username');
 
@@ -55,14 +87,23 @@ function initMenu(){
     }
   });
 
-  document.addEventListener('click', event => {
+  document.addEventListener('click', function(event) {
     const target = event.target;
     if (logoutPopup && !navUser.contains(target) && !logoutPopup.contains(target)) {
       logoutPopup.style.display = 'none';
     }
   });
+
+  const btnLogout = document.getElementById('btn-logout');
+  if (btnLogout) {
+    btnLogout.addEventListener('click', logout);
+  }
 }
 
+
+//crud
+
+//update
 function generateTable(products) {
   let table = '<table class="produtos-tabela">';
   
@@ -92,26 +133,4 @@ function generateTable(products) {
   
   table += '</table>';
   return table;
-}
-
-function scrollToSection(event, sectionId) {
-  event.preventDefault();
-  const section = document.getElementById(sectionId);
-  if (section) {
-    section.scrollIntoView({ behavior: 'smooth' });
-  }
-}
-
-function enableDeleteCell() {
-    const tabela = document.querySelector('.produtos-tabela');
-    if (!tabela) return;
-
-    tabela.querySelectorAll('td').forEach(td => {
-        td.addEventListener('dblclick', () => {
-            const confirmar = confirm('Deseja excluir esta célula?');
-            if (!confirmar) return;
-
-            td.remove();
-        });
-    });
 }
