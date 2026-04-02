@@ -27,6 +27,11 @@
                 <input type="password" id="senha" name="senha" placeholder="••••••••" required>
             </div>
 
+            <div class="input-group lembrar-me-group" style="display: flex; align-items: center; gap: 0.35rem;">
+                <span style="font-size: 0.95rem;">Lembrar</span>
+                <input type="checkbox" id="lembrar-me" name="lembrar-me" value="true" style="margin: 0;" aria-label="Lembrar-me">
+            </div>
+
             <a href="Cadastro.html" class="link-cadastro">Não tenho uma conta</a>
             
             <div class="button-group">
@@ -43,7 +48,6 @@
                 const menuContainer = document.getElementById('menu');
                 menuContainer.innerHTML = data;
                 
-                // Remove o botão de login do menu dinâmico
                 const links = menuContainer.querySelectorAll('li');
                 links.forEach(li => {
                     if (li.textContent.trim().toLowerCase() === 'login') {

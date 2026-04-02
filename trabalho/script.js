@@ -2,8 +2,10 @@ function login(event){
   event.preventDefault();
   let username = document.getElementById("username").value; 
   let password = document.getElementById("senha").value;
+  let lembrarMe = document.getElementById("lembrar-me").checked;
 
   sessionStorage.setItem("username", username);
+  localStorage.setItem("lembrarMe", lembrarMe);
 
   if(username === "admin" && password === "123"){
     sessionStorage.setItem("username", username);
@@ -34,33 +36,54 @@ function renderMenuUser(){
 
 function initMenu(){
   renderMenuUser();
+
+  const navUser = document.querySelector('.nav-user');
+  const logoutPopup = document.getElementById('logout-popup');
+
+  if(!navUser) return;
+
+  navUser.addEventListener('click', event => {
+    event.preventDefault();
+    const loggedUsername = sessionStorage.getItem('username');
+
+    if (loggedUsername) {
+      if (logoutPopup) {
+        logoutPopup.style.display = logoutPopup.style.display === 'block' ? 'none' : 'block';
+      }
+    } else {
+      window.location.href = 'Login.html';
+    }
+  });
+
+  document.addEventListener('click', event => {
+    const target = event.target;
+    if (logoutPopup && !navUser.contains(target) && !logoutPopup.contains(target)) {
+      logoutPopup.style.display = 'none';
+    }
+  });
 }
 
 function generateTable(products) {
   let table = '<table class="produtos-tabela">';
   
-  // Row for images
   table += '<tr>';
   products.forEach(product => {
     table += `<td><img class="produto-img" src="${product.image}" alt="${product.name}"></td>`;
   });
   table += '</tr>';
-  
-  // Row for names
+
   table += '<tr>';
   products.forEach(product => {
     table += `<td contenteditable="true"><h3 class="produto-nome">${product.name}</h3></td>`;
   });
   table += '</tr>';
   
-  // Row for descriptions
   table += '<tr>';
   products.forEach(product => {
     table += `<td contenteditable="true"><p class="produto-descricao">${product.description}</p></td>`;
   });
   table += '</tr>';
   
-  // Row for prices
   table += '<tr>';
   products.forEach(product => {
     table += `<td contenteditable="true"><p class="produto-preco">${product.price}</p></td>`;
