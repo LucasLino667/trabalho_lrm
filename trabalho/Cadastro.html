@@ -1,40 +1,40 @@
 <body class="loginPage">
     <link rel="stylesheet" href="style.css">
     <header id="cabecalho"></header>
-    <menu id="menu"></menu>
+    <menu id="menu" role="navigation" aria-label="Menu de navegação"></menu>
 
   
 
-    <div class="cadastramento-zone">
-        <div class="login-image" style="background-image: url('https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=2029&auto=format&fit=crop');">
+    <div class="cadastramento-zone" aria-label="Área de cadastro">
+        <div class="login-image" style="background-image: url('https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=2029&auto=format&fit=crop');" aria-hidden="true">
             <div class="image-overlay">
                 <h2>Crie sua conta</h2>
                 <p>Junte-se à nossa comunidade e aproveite ofertas exclusivas.</p>
             </div>
         </div> 
 
-        <form class="loginForm" onsubmit="mostrarSucesso(event)">
+        <form class="loginForm" onsubmit="mostrarSucesso(event)" novalidate aria-label="Formulário de cadastro">
             <h1>Cadastro</h1>
             <p class="subtitle">Preencha os campos para começar</p>
 
             <div class="input-group">
                 <label for="nome">Nome Completo</label>
-                <input type="text" id="nome" name="nome" placeholder="Ex: João Silva" required>
+                <input type="text" id="nome" name="nome" placeholder="Ex: João Silva" required aria-required="true" autocomplete="name">
             </div>
 
             <div class="input-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                <input type="email" id="email" name="email" placeholder="seu@email.com" required aria-required="true" autocomplete="email">
             </div>
 
             <div class="input-group">
                 <label for="senha">Senha</label>
-                <input type="password" id="senha" name="senha" placeholder="Crie uma senha forte" required>
+                <input type="password" id="senha" name="senha" placeholder="Crie uma senha forte" required aria-required="true" autocomplete="new-password">
             </div>
 
             <div class="input-group">
                 <label for="confirma-senha">Confirme sua Senha</label>
-                <input type="password" id="confirma-senha" name="confirma-senha" placeholder="Repita a senha" required>
+                <input type="password" id="confirma-senha" name="confirma-senha" placeholder="Repita a senha" required aria-required="true" autocomplete="new-password" aria-describedby="senha-hint">
             </div>
 
             <a href="Login.html" class="link-cadastro">Já tenho uma conta</a>
@@ -46,11 +46,11 @@
         </form>
     </div>
 
-    <div id="modal-sucesso" style="display:none;">
+    <div id="modal-sucesso" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="modal-sucesso-msg" aria-hidden="true">
         <div class="modal-overlay">
             <div class="modal-box">
                 <p>✅ Cadastro realizado com sucesso!</p>
-                <button onclick="window.location.href='Login.html'">Ir para o Login</button>
+                <button onclick="window.location.href='Login.html'" aria-label="Ir para a página de login">Ir para o Login</button>
             </div>
         </div>
     </div>

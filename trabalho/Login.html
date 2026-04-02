@@ -1,35 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
 <body class="loginPage">
     <header id="cabecalho"></header>
     <link rel="stylesheet" href="style.css">
-    <menu id="menu"></menu>
+    <menu id="menu" role="navigation" aria-label="Menu de navegação"></menu>
 
     
 
-    <div class="cadastramento-zone">
-        <div class="login-image">
+    <div class="cadastramento-zone" aria-label="Área de login">
+        <div class="login-image" aria-hidden="true">
             <div class="image-overlay">
                 <h2>Bem-vindo de volta!</h2>
                 <p>Acesse sua conta para continuar comprando.</p>
             </div>
         </div> 
         
-        <form class="loginForm" onsubmit="login(event)">
+        <form class="loginForm" onsubmit="login(event)" novalidate aria-label="Formulário de login">
             <h1>Login</h1>
-            <p class="subtitle">Insira seus dados abaixo</p>
+            <p class="subtitle" id="login-desc">Insira seus dados abaixo</p>
 
             <div class="input-group">
                 <label for="username">username</label>
-                <input type="text" id="username" name="username" placeholder="seu username" required>
+                <input type="text" id="username" name="username" placeholder="seu username" required aria-required="true" autocomplete="username">
             </div>
 
             <div class="input-group">
                 <label for="senha">Senha</label>
-                <input type="password" id="senha" name="senha" placeholder="••••••••" required>
+                <input type="password" id="senha" name="senha" placeholder="••••••••" required aria-required="true" autocomplete="current-password">
             </div>
 
             <div class="input-group lembrar-me-group">
-                <span>Lembrar</span>
-                <input type="checkbox" id="lembrar-me" name="lembrar-me" value="true" aria-label="Lembrar-me" checked="checked">
+                <label for="lembrar-me">Lembrar</label>
+                <input type="checkbox" id="lembrar-me" name="lembrar-me" value="true" checked>
             </div>
 
             <a href="Cadastro.html" class="link-cadastro">Não tenho uma conta</a>
@@ -61,3 +63,4 @@
     </script>
     <script src="script.js"></script>
 </body>
+</html>  

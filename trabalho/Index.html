@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,20 +11,21 @@
 
     <div id="menu"></div>
 
-    <section id="inicio"></section>
+    <section id="inicio" aria-label="Início"></section>
 
-    <section id="produtos">
+    <section id="produtos" aria-label="Lista de produtos">
         <div id="tabela"></div>
     </section>
 
- <section id="admin-panel" class="admin-section" style="display: none;">
+ <section id="admin-panel" class="admin-section" style="display: none;" aria-label="Painel de administração" aria-hidden="true">
         <div class="secao-conteudo">
             <h2>Painel ADM</h2>
             <p>CRUDL</p>
             <div class="admin-buttons">
-                <button class="btn-admin btn-insert" onclick="abreFormulario()">Inserir Produto</button>
-                <button class="btn-admin btn-delete" onclick="apagarProduto()">Excluir Produto</button>
-                <button class="btn-admin btn-save" onclick="editarTabela()">Aplicar Edições</button>
+                <button class="btn-admin btn-insert" onclick="abreFormulario()" aria-label="Inserir novo produto">Inserir Produto</button>
+                <button class="btn-admin btn-delete" onclick="apagarProduto()" aria-label="Excluir produto selecionado">Excluir Produto</button>
+                <button class="btn-admin btn-save" onclick="editarTabela()" aria-label="Aplicar edições na tabela">Aplicar Edições</button>
+
             </div>
             <p style="font-size:0.95rem; margin-top: 8px; color: #555;">A listagem e os dados tão sendo mostrados em tempo real</p>
         </div>
@@ -67,7 +68,7 @@
         </div>
     </div>
 
-    <section id="sobre">
+    <section id="sobre" aria-labelledby="sobre-titulo">
         <div class="secao-conteudo">
             <h2>Sobre O Projeto</h2>
             <p>Cadastro de vitrine de produtos generico, fiz o painel de CRUD aparecer em baixo da tabela quando logar como admin, </p>
@@ -76,14 +77,14 @@
         </div>
     </section>
 
-    <section id="servicos">
+    <section id="servicos" aria-labelledby="servicos-titulo">
         <div class="secao-conteudo">
             <h2>Serviços</h2>
             <p>Oferecemos assistência técnica, garantia estendida e suporte ao cliente.</p>
         </div>
     </section>
 
-    <section id="contato">
+    <section id="contato" aria-labelledby="contato-titulo">
         <div class="secao-conteudo">
             <h2>Contato</h2>
             <p>Entre em contato conosco pelo e-mail: contato@pscodeshop.com</p>
@@ -91,7 +92,7 @@
     </section>
 
 
-    <footer id="rodape"></footer>
+    <footer id="rodape" aria-label="Rodapé"></footer>
 
     <script src="script.js"></script>
     <script>

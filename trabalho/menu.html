@@ -1,11 +1,11 @@
 <header>
-  <nav class="nav">
+  <nav class="nav" aria-label="Navegação principal">
     <div class="nav-left">
-      <a href="index.html" class="logo">
+      <a href="index.html" class="logo" aria-label="Ir para a página inicial">
         <img src="https://preview.redd.it/the-exploding-boar-emoji-v0-ztmoydznt9qf1.png?width=320&format=png&auto=webp&s=b543f60df019541db4f669f2c866aac19ad4b87f" alt="Logo do Site">
       </a>
       <div class="nav-header">
-        <span class="title">TITULO DO SITE</span>
+        <span class="title" aria-hidden="true">TITULO DO SITE</span>
       </div>
     </div>
 
@@ -14,16 +14,16 @@
       <li><a href="#sobre" onclick="scrollToSection(event, 'sobre')">Sobre</a></li>
       <li><a href="#servicos" onclick="scrollToSection(event, 'servicos')">Serviços</a></li>
       <li><a href="#contato" onclick="scrollToSection(event, 'contato')">Contato</a></li>
-      <li id="admin-link" style="display: none;"><a href="Crud.html">Admin</a></li>
+      <li id="admin-link" style="display: none;" aria-hidden="true"><a href="Crud.html">Admin</a></li>
     </ul>
 
     <div class="nav-user-wrapper">
-      <a href="#" class="nav-user">
+      <a href="#" class="nav-user" aria-label="Área do usuário" aria-haspopup="true" aria-expanded="false">
         <span class="username">LOGIN</span>
         <img src="./images/user_disconnected.png" alt="Avatar do Usuário" class="avatar">
       </a>
-      <div id="logout-popup" class="logout-popup">
-        <button id="btn-logout">Desconectar</button>
+      <div id="logout-popup" class="logout-popup" role="dialog" aria-label="Opções do usuário">
+        <button id="btn-logout" aria-label="Desconectar da conta">Desconectar</button>
       </div>
     </div>
   </nav>
