@@ -1,10 +1,10 @@
 :root {
-    --primary: #0f172a;
-    --accent: #2563eb;
+    --primary: #001258;
+    --accent: #1A47B8;
     --accent-hover: #1d4ed8;
-    --bg-body: #f1f5f9;
-    --text-main: #1e293b;
-    --text-muted: #64748b;
+    --bg-body: #F0F2FF;
+    --text-main: #1B1C22 ;
+    --text-muted: #44464F;
     --white: #ffffff;
     --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
@@ -222,7 +222,7 @@ table {
 }
 
 .produto-preco {
-    color: #059669;
+    color: #006B5F;
     font-weight: bold;
     font-size: 1.2rem;
     margin: 8px 0 0 0;
@@ -452,7 +452,7 @@ footer li {
 #servicos,
 #contato {
     width: 100%;
-    padding: 160px 40px;
+    padding: 60px 40px;
     display: flex;
     justify-content: center;
     scroll-margin-top: 70px;
@@ -466,7 +466,7 @@ footer li {
     max-width: 750px;
     width: 100%;
     text-align: center;
-    padding: 60px 50px;
+    padding: 80px 40px;
     border-radius: 20px;
     box-shadow: var(--shadow);
     background: var(--white);
@@ -506,7 +506,7 @@ footer li {
 
 .admin-section {
     width: 100%;
-    padding: 160px 40px;
+    padding: 60px 40px;
     scroll-margin-top: 70px;
     background-color: #f1f5f9;
     min-height: 50vh;
@@ -545,12 +545,12 @@ footer li {
 }
 
 .btn-delete {
-    background-color: #dc2626;
+    background-color: #BA1A1A;
     color: white;
 }
 
 .btn-delete:hover {
-    background-color: #b91c1c;
+    background-color: #BA1A1A;
     transform: translateY(-1px);
 }
 
