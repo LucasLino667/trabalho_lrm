@@ -54,10 +54,30 @@
                         <input type="number" id="product-price" name="price">
                     </div>
 
+                    <label for="browser-choice">Choose a browser:</label>
+<input list="browsers" id="browser-choice" name="browser-choice">
+
+<datalist id="browsers">
+  <option value="CPU">
+  <option value="GPU">
+  <option value="PSU">
+  <option value="RAM">
+  <option value="STORAGE">
+</datalist>
+
+produto ativo?
+
+<label class="switch">
+  <input type="checkbox">
+  <span class="slider"></span>
+</label>
+
                     <div class="form-group">
                         <label for="product-image">Link da Imagem</label>
                         <input type="url" id="product-image" name="image">
                     </div>
+
+
 
                     <div class="form-actions">
                         <button type="button" class="btn-cancel" onclick="fechaFormulario()">Cancelar</button>
@@ -105,11 +125,9 @@
 
         renderProductsTable();
 
-
         fetch('footer.html')
             .then(r => r.text())
             .then(data => document.getElementById('rodape').innerHTML = data);
     </script>
-
 </body>
 </html>
