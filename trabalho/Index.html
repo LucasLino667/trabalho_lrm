@@ -42,6 +42,17 @@
           </div>
         </div>
       </dialog>
+      
+      <dialog id="edit-dialog">
+        <div class="delete-dialog-content">
+          <h2>Aplicar Edições</h2>
+          <p>Deseja salvar todas as alterações feitas na tabela?</p>
+          <div class="form-actions">
+            <button class="btn-cancel" onclick="document.getElementById('edit-dialog').close()">Cancelar</button>
+            <button class="btn-save" onclick="confirmarEdicao()">Confirmar</button>
+          </div>
+        </div>
+      </dialog>
 
     <div id="insert-modal" class="insert-modal" style="display: none;">
         <div class="insert-modal-content">
