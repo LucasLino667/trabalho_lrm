@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PScode</title>
-    <link rel="icon" type="image/png" href="https://preview.redd.it/the-exploding-boar-emoji-v0-ztmoydznt9qf1.png?width=320&format=png&auto=webp&s=b543f60df019541db4f669f2c866aac19ad4b87f">
+    <link rel="icon" type="image/png"
+        href="https://preview.redd.it/the-exploding-boar-emoji-v0-ztmoydznt9qf1.png?width=320&format=png&auto=webp&s=b543f60df019541db4f669f2c866aac19ad4b87f">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <div id="menu"></div>
@@ -17,31 +20,36 @@
         <div id="tabela"></div>
     </section>
 
- <section id="admin-panel" class="admin-section" style="display: none;" aria-label="Painel de administração" aria-hidden="true">
+    <section id="admin-panel" class="admin-section" style="display: none;" aria-label="Painel de administração"
+        aria-hidden="true">
         <div class="secao-conteudo">
             <h2>Painel ADM</h2>
             <p>CRUDL</p>
             <div class="admin-buttons">
-                <button class="btn-admin btn-insert" onclick="abreFormulario()" aria-label="Inserir novo produto">Inserir Produto</button>
-                <button class="btn-admin btn-delete" onclick="apagarProduto()" aria-label="Excluir produto selecionado">Excluir Produto</button>
-                <button class="btn-admin btn-save" onclick="editarTabela()" aria-label="Aplicar edições na tabela">Aplicar Edições</button>
+                <button class="btn-admin btn-insert" onclick="abreFormulario()"
+                    aria-label="Inserir novo produto">Inserir Produto</button>
+                <button class="btn-admin btn-delete" onclick="apagarProduto()"
+                    aria-label="Excluir produto selecionado">Excluir Produto</button>
+                <button class="btn-admin btn-save" onclick="editarTabela()"
+                    aria-label="Aplicar edições na tabela">Aplicar Edições</button>
 
             </div>
-            <p style="font-size:0.95rem; margin-top: 8px; color: #555;">A listagem e os dados tão sendo mostrados em tempo real</p>
+            <p style="font-size:0.95rem; margin-top: 8px; color: #555;">A listagem e os dados tão sendo mostrados em
+                tempo real</p>
         </div>
     </section>
 
     <dialog id="delete-dialog">
         <div class="delete-dialog-content">
-          <h2>Excluir Produto</h2>
-          <p>Digite a posição do produto que deseja remover:</p>
-          <input type="number" id="delete-position" min="1" placeholder="Ex: 1" />
-          <div class="form-actions">
-            <button class="btn-cancel" onclick="document.getElementById('delete-dialog').close()">Cancelar</button>
-            <button class="btn-save btn-delete-confirm" onclick="confirmarExclusao()">Excluir</button>
-          </div>
+            <h2>Excluir Produto</h2>
+            <p>Digite a posição do produto que deseja remover:</p>
+            <input type="number" id="delete-position" min="1" placeholder="Ex: 1" />
+            <div class="form-actions">
+                <button class="btn-cancel" onclick="document.getElementById('delete-dialog').close()">Cancelar</button>
+                <button class="btn-save btn-delete-confirm" onclick="confirmarExclusao()">Excluir</button>
+            </div>
         </div>
-      </dialog>
+    </dialog>
 
     <div id="insert-modal" class="insert-modal" style="display: none;">
         <div class="insert-modal-content">
@@ -53,40 +61,43 @@
                 <form id="insert-form" class="insert-form">
                     <div class="form-group">
                         <label for="product-name">Nome produto</label>
-                        <input type="text" id="product-name" name="name">
+                        <input type="text" id="product-name" name="name" placeholder="Nome do produto">
                     </div>
 
                     <div class="form-group">
                         <label for="product-description">Descrição</label>
-                        <textarea id="product-description" name="description"></textarea>
+                        <textarea id="product-description" name="description"
+                            placeholder="Descrição do Produto"></textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="product-price">Preço</label>
-                        <input type="number" id="product-price" name="price">
+                        <input type="text" id="product-price" name="price" placeholder="Ex: 99.99">
                     </div>
 
-                    <label for="tipo-produto">escolha um tipo de produto:</label>
-<input list="produto" id="tipo-produto" name="tipo-produto">
+                    <div class="form-group">
+                        <label for="tipo-produto">Tipo de produto</label>
+                        <input list="produto" id="tipo-produto" name="tipo-produto" placeholder="Selecione um tipo">
+                    </div>
 
-<datalist id="produto">
-  <option value="CPU">
-  <option value="GPU">
-  <option value="PSU">
-  <option value="RAM">
-  <option value="STORAGE">
-</datalist>
+                    <datalist id="produto">
+                        <option value="CPU">
+                        <option value="GPU">
+                        <option value="PSU">
+                        <option value="RAM">
+                        <option value="STORAGE">
+                    </datalist>
 
-produto ativo?
+                    produto ativo?
 
-<label class="switch">
-  <input type="checkbox">
-  <span class="slider"></span>
-</label>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
 
                     <div class="form-group">
                         <label for="product-image">Link da Imagem</label>
-                        <input type="url" id="product-image" name="image">
+                        <input type="url" id="product-image" name="image" placeholder="https://...">
                     </div>
 
 
@@ -103,7 +114,8 @@ produto ativo?
     <section id="sobre" aria-labelledby="sobre-titulo">
         <div class="secao-conteudo">
             <h2>Sobre O Projeto</h2>
-            <p>Cadastro de vitrine de produtos generico, fiz o painel de CRUD aparecer em baixo da tabela quando logar como admin, </p>
+            <p>Cadastro de vitrine de produtos generico, fiz o painel de CRUD aparecer em baixo da tabela quando logar
+                como admin, </p>
             <p>logins padrões: admin, user.</p>
             <p>Senhas são ambas 123</p>
         </div>
@@ -142,4 +154,5 @@ produto ativo?
             .then(data => document.getElementById('rodape').innerHTML = data);
     </script>
 </body>
+
 </html>
