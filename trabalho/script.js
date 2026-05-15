@@ -152,27 +152,36 @@ function renderProductsTable() {
 }
 
 function editarTabela() {
+  const tabela = document.querySelector('.produtos-tabela');
+
+  if (!tabela) {
+    toast('Tabela não carregou', 'error');
+    return;
+  }
+
+  const products = getStoredProducts() || [];
+
+  if (!products.length) return;
+
+  const nameCells = tabela.querySelectorAll('tr:nth-child(2) td');
+  const descriptionCells = tabela.querySelectorAll('tr:nth-child(3) td');
+  const priceCells = tabela.querySelectorAll('tr:nth-child(4) td');
+
+  if (nameCells.length !== products.length || descriptionCells.length !== products.length || priceCells.length !== products.length) {
+    toast('Falta alguma linha em algum produto', 'error');
+    return;
+  }
+
+  document.getElementById('edit-dialog').showModal();
+}
+
+function confirmarEdicao() {
   const products = getStoredProducts() || [];
   const tabela = document.querySelector('.produtos-tabela');
   const nameCells = tabela.querySelectorAll('tr:nth-child(2) td');
   const descriptionCells = tabela.querySelectorAll('tr:nth-child(3) td');
   const priceCells = tabela.querySelectorAll('tr:nth-child(4) td');
 
-  //validacao de erro
-  if (!products.length) {
-    return;
-  }
-
-  if (!tabela) {
-    alert('tabela nao carregou');
-    return;
-  }
-
-  if (nameCells.length !== products.length || descriptionCells.length !== products.length || priceCells.length !== products.length) {
-    alert('falta alguma linha em algum produto');
-    return;
-  }
-  
   for (let i = 0; i < products.length; i++) {
     const nameEl = nameCells[i].textContent.trim();
     const descriptionEl = descriptionCells[i].textContent.trim();
@@ -183,9 +192,11 @@ function editarTabela() {
     products[i].description = descriptionEl;
     products[i].price = priceEl;
   }
+
   setStoredProducts(products);
+  document.getElementById('edit-dialog').close();
   renderProductsTable();
-  alert('Alterações feitas!');
+  toast('Alterações salvas!', 'success');
 }
 
 function apagarProduto() {
