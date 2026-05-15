@@ -9,7 +9,7 @@ function login(event) {
   if ((username === 'admin' || username === 'user') && password === '123') {
     window.location.href = 'Index.html';
   } else {
-    alert('Usuário ou senha incorretos!');
+    showToast('Usuário ou senha incorretos!');
   }
 }
 
@@ -152,36 +152,27 @@ function renderProductsTable() {
 }
 
 function editarTabela() {
+  const products = getStoredProducts() || [];
   const tabela = document.querySelector('.produtos-tabela');
+  const nameCells = tabela.querySelectorAll('tr:nth-child(2) td');
+  const descriptionCells = tabela.querySelectorAll('tr:nth-child(3) td');
+  const priceCells = tabela.querySelectorAll('tr:nth-child(4) td');
+
+  //validacao de erro
+  if (!products.length) {
+    return;
+  }
 
   if (!tabela) {
-    toast('Tabela não carregou', 'error');
+    showToast('Tabela não carregou');
     return;
   }
-
-  const products = getStoredProducts() || [];
-
-  if (!products.length) return;
-
-  const nameCells = tabela.querySelectorAll('tr:nth-child(2) td');
-  const descriptionCells = tabela.querySelectorAll('tr:nth-child(3) td');
-  const priceCells = tabela.querySelectorAll('tr:nth-child(4) td');
 
   if (nameCells.length !== products.length || descriptionCells.length !== products.length || priceCells.length !== products.length) {
-    toast('Falta alguma linha em algum produto', 'error');
+    showToast('Falta alguma linha em algum produto');
     return;
   }
-
-  document.getElementById('edit-dialog').showModal();
-}
-
-function confirmarEdicao() {
-  const products = getStoredProducts() || [];
-  const tabela = document.querySelector('.produtos-tabela');
-  const nameCells = tabela.querySelectorAll('tr:nth-child(2) td');
-  const descriptionCells = tabela.querySelectorAll('tr:nth-child(3) td');
-  const priceCells = tabela.querySelectorAll('tr:nth-child(4) td');
-
+  
   for (let i = 0; i < products.length; i++) {
     const nameEl = nameCells[i].textContent.trim();
     const descriptionEl = descriptionCells[i].textContent.trim();
@@ -192,11 +183,9 @@ function confirmarEdicao() {
     products[i].description = descriptionEl;
     products[i].price = priceEl;
   }
-
   setStoredProducts(products);
-  document.getElementById('edit-dialog').close();
   renderProductsTable();
-  toast('Alterações salvas!', 'success');
+  showToast('Alterações feitas!', 'sucesso');
 }
 
 function apagarProduto() {
@@ -254,7 +243,7 @@ function editarImagem() {
       products[index].image = novoLink.trim();
       setStoredProducts(products);
       renderProductsTable();
-      alert('Imagem atualizada');
+      showToast('Imagem atualizada!', 'sucesso');
     });
   });
 }
@@ -264,6 +253,22 @@ function abreFormulario() {
   if (!modal) return;
   modal.style.display = 'flex';
   document.body.style.overflow = 'hidden';
+
+  const inputImagem = document.getElementById('product-image');
+  if (inputImagem) {
+    inputImagem.addEventListener('input', () => {
+      const url = inputImagem.value.trim();
+      const container = document.getElementById('preview-img-container');
+      const img = document.getElementById('preview-img');
+      if (url) {
+        img.src = url;
+        img.onload = () => container.style.display = 'block';
+        img.onerror = () => container.style.display = 'none';
+      } else {
+        container.style.display = 'none';
+      }
+    });
+  }
 }
 
 function fechaFormulario() {
@@ -285,9 +290,9 @@ function handlerTabela(event) {
   const image = formData.get('image').trim();
 
   if (!name || !description || !priceRaw || !image) {
-    alert('preencha todos os campos');
+    showToast('Preencha todos os campos');
     return;
-  }
+  }   
 
   const newProduct = {
     name: name,
@@ -300,7 +305,7 @@ function handlerTabela(event) {
   products.push(newProduct);
   setStoredProducts(products);
   renderProductsTable();
-  alert('Produto adicionado');
+  showToast('Produto adicionado!', 'sucesso');
   fechaFormulario();
 }
 
@@ -319,3 +324,16 @@ document.addEventListener('DOMContentLoaded', () => {
   initMenu();
   renderProductsTable();
 });
+
+function showToast(mensagem, tipo = 'erro') {
+  let toast = document.getElementById('toast');
+  if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'toast';
+      toast.className = 'toast';
+      document.body.appendChild(toast);
+  }
+  toast.textContent = mensagem;
+  toast.className = `toast ${tipo} show`;
+  setTimeout(() => toast.classList.remove('show'), 3000);
+}
