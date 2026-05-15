@@ -190,13 +190,31 @@ function editarTabela() {
 
 function apagarProduto() {
   const products = getStoredProducts() || [];
-  if (!products.length) { alert('Sem produtos para excluir'); return; }
-  const position = parseInt(prompt(`Digite a posição do produto`), 10);
-  if (Number.isNaN(position) || position < 1 || position > products.length) { alert('Posição invalida, tamanho da lista: ' + products.length); return; }
+  if (!products.length) {
+    toast('Sem produtos para excluir', 'warning');
+    return;
+  }
+  const dialog = document.getElementById('delete-dialog');
+  const input = document.getElementById('delete-position');
+  input.max = products.length;
+  input.value = '';
+  dialog.showModal();
+}
+
+function confirmarExclusao() {
+  const products = getStoredProducts() || [];
+  const position = parseInt(document.getElementById('delete-position').value, 10);
+
+  if (Number.isNaN(position) || position < 1 || position > products.length) {
+    toast('Posição inválida, tamanho da lista: ' + products.length, 'error');
+    return;
+  }
+
   const removed = products.splice(position - 1, 1)[0];
   setStoredProducts(products);
   renderProductsTable();
-  alert(`Produto removido: ${removed.name}`);
+  document.getElementById('delete-dialog').close();
+  toast(`Produto removido: ${removed.name}`, 'success');
 }
 
 function apagarLinha() {
